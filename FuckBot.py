@@ -1,10 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Fuck Bot
+
 import tweepy, time, sys
 
 ID_FILE = "id.txt"
+
+# DATOS DE LA API
 CONSUMER_KEY =		"7XLGopH54FPOfoMPxdH5Qg90z" 							# ID de la App
 CONSUMER_SECRET =	"soZdEPWv3jQWPUGZ5xrtFfabm4ZuWvfeVjR4rkMia0cw9B1dfP" 	# AUTH de la App
+
+# DATOS DE LA CUENTA FUCKBOT
 ACCESS_KEY =		"4761171228-Wmnh5ShphTobwmpgGexNd60h0xInh2H7XlmMnZq" 	# Llave de la cuenta
-ACCESS_SECRET =		"Mg4UAdRd04OkuUShLZETMtBMMNRt3SoQcuHLXE4HgBbOa" 		# Autorizacion de la cuenta
+ACCESS_SECRET =		"Mg4UAdRd04OkuUShLZETMtBMMNRt3SoQcuHLXE4HgBbOa" 		# Autorización de la cuenta
 
 def refresh_id(text):
 	f = open(ID_FILE, 'r+')
@@ -21,12 +30,18 @@ def last_id():
 		last = int(ar.read())
 	return last
 
+print 'Iniciando FuckBot...'
+print 'Leyendo el id del ultimo nombre...'
 last_name_id = last_id()
+print 'El id es '+str(last_name_id)
 
+print 'Inicia proceso de verificación'
 auth = tweepy.OAuthHandler(CONSUMER_KEY,CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY,ACCESS_SECRET)
 
 api = tweepy.API(auth)
+print 'Autenticado, inicia tuiteo'
+
 
 with open('Names.txt') as f:
 	i = 0
@@ -40,6 +55,6 @@ with open('Names.txt') as f:
 			i += 1
 			refresh_id(i)
 			print 'Status #'+str(i)+': '+message
-			time.sleep(1200) # Sleep for 20 Minutes (Let's keep it realistic boys!)
+			time.sleep(900) # Sleep for 15 Minutes (Let's keep it realistic boys!)
 
 #End of Program
