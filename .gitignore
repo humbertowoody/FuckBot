@@ -59,4 +59,4 @@ docs/_build/
 target/
 
 # Project
-id.txt
+id*
