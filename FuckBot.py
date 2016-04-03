@@ -44,17 +44,24 @@ print 'Autenticado, inicia tuiteo'
 
 
 with open('Names.txt') as f:
-	i = 0
-	for line in f:
-		if(i < last_name_id):
-			i += 1
-		else:
-			line = str(line).replace("\n","")
-			message = 'Fuck you '+str(line)+'!'
-			api.update_status(message)
-			i += 1
-			refresh_id(i)
-			print 'Status #'+str(i)+': '+message
-			time.sleep(900) # Sleep for 15 Minutes (Let's keep it realistic boys!)
+        i = 0
+        last = 'hola'
+        for line in f:
+                if(i < last_name_id):
+                        i += 1
+                else:
+                        line = str(line).replace("\n","")
+                        if((last[0] != line[0]) and last != 'hola'):
+                                mes = 'Fuck '+line[0]
+                                api.update_status(mes)
+                                print 'Nueva letra'+line[0]
+                        else:
+                                last = line
+                        message = 'Fuck you '+str(line)+'!'
+                        api.update_status(message)
+                        i += 1
+                        refresh_id(i)
+                        print 'Status #'+str(i)+': '+message
+                        time.sleep(900) # Sleep for 15 Minutes (Let's keep it realistic boys!)
 
 #End of Program
