@@ -3,7 +3,7 @@
 
 # Fuck Bot
 
-import tweepy, time, sys
+import tweepy, time, sys, subprocess
 
 ID_FILE = "id.txt"
 
@@ -44,6 +44,7 @@ print 'Autenticado, inicia tuiteo'
 
 
 with open('Names.txt') as f:
+    try:
         i = 0
         last = 'hola'
         for line in f:
@@ -63,5 +64,8 @@ with open('Names.txt') as f:
                         refresh_id(i)
                         print 'Status #'+str(i)+': '+message
                         time.sleep(900) # Sleep for 15 Minutes (Let's keep it realistic boys!)
-
+    except:
+    	print 'Algo valió madre, avisando al dueño...'
+    	subprocess.Popen("./Saludo.py")
+        exit()
 #End of Program
