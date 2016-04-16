@@ -53,9 +53,9 @@ with open('Names.txt') as f:
                 else:
                         line = str(line).replace("\n","")
                         if((last[0] != line[0]) and last != 'hola'):
-                                mes = 'Fuck '+line[0]
+                                mes = 'Fuck '+line[0]+'!'
                                 api.update_status(mes)
-                                print 'Nueva letra'+line[0]
+                                print 'Nueva letra: '+line[0]
                         else:
                                 last = line
                         message = 'Fuck you '+str(line)+'!'
