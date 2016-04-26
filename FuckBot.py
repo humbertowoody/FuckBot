@@ -63,9 +63,10 @@ with open('Names.txt') as f:
                         i += 1
                         refresh_id(i)
                         print 'Status #'+str(i)+': '+message
-                        time.sleep(900) # Sleep for 15 Minutes (Let's keep it realistic boys!)
+                        time.sleep(300) # Sleep for 15 Minutes (Let's keep it realistic boys!)
     except:
     	print 'Algo valió madre, avisando al dueño...'
+        time.sleep(10) # Wait 10 seconds in case API Overload or Server Down.
     	subprocess.Popen("./Saludo.py")
         exit()
 #End of Program
