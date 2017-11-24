@@ -18,7 +18,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY,CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY,ACCESS_SECRET)
 
 api = tweepy.API(auth)
-print 'Autenticado'
+print 'Autenticado (con el servidor)'
 
 print 'Enviando mensaje...'
 api.send_direct_message(screen_name='humbertowoody',text='Valió verga, de nuevo.')
